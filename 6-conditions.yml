@@ -24,7 +24,7 @@
   vars:
     action: true
     action1: false
-    sample: xyz   
+    #sample: xyz   
   tasks:
     - name: Run ABC task
       ansible.builtin.debug:
