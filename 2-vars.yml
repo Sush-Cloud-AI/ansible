@@ -2,6 +2,10 @@
   hosts: all
   vars:
     URL: google.com   # gloabl/play level variable can be use in any tasks
+  vars_prompt:
+    - name: URL
+      prompt: Enter the URL
+      
   tasks:
    - name: Print URL var
      ansible.builtin.debug:
@@ -20,4 +24,9 @@
 
 
 
-  # Local variables have higher precidence than gloabl
+  # command line >Local variables > gloabl
+  #runtime varibles / command line -e CLI_URL=var
+  # command line varibles will have the highest precidence -e URL=var will overide glabla aswell
+  # as local 
+
+
