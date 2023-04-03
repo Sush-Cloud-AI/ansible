@@ -9,4 +9,4 @@
 
    - name: Print the output of uptime
      ansible.builtin.debug:
-       msg: "{{ OUT.stdout }}"" # to get specific output only .stout
+       msg: "{{ OUT }}"" # to get specific output only .stout
