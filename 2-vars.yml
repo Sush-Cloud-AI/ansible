@@ -1,5 +1,5 @@
 - name: Play1
-  hosts: DEV
+  hosts: all
   vars:
     URL: google.com   # gloabl/play level variable can be use in any tasks
   tasks:
