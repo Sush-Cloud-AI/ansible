@@ -1,2 +1,4 @@
-172.31.8.200
-172.31.11.175
+[DEV]
+gpay.roboshop.internal
+[PROD]
+upi.roboshop.internal
