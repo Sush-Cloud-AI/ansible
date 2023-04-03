@@ -11,4 +11,14 @@
      ansible.builtin.debug:
        msg: The value of URL is {{ URL }}
      vars:
-       URL: yahoo.com
+       URL: yahoo.com  ## local variables
+
+
+    - name: Print URL var
+      ansible.builtin.debug:
+         msg: The value of CLI_URL is {{ CLI_URL }}  # runtime varibles / command line
+
+
+
+
+  # Local variables have higher precidence than gloabl
