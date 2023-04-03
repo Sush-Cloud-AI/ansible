@@ -1,0 +1,17 @@
+# when condition
+
+- name: Demo on condtions
+  hosts: all
+  tasks:
+    - name: Run this for centos machines only 
+      ansible.builtin.debug:
+        msg: Hello to centos
+      when: ansible_distribution == "CentOS"
+
+    - name: Run this for centos machines only 
+      ansible.builtin.debug:
+        msg: Hello to centos
+      when: ansible_distribution == "ubuntu"
+
+
+# will execute when the condtion matches others will be skipped
