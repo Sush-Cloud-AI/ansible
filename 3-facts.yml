@@ -1,0 +1,16 @@
+# facts are properties of the target node. Before we run the playbook 
+# ansible collects all the facts and keeps it ready
+
+#command to see the facts :
+ #  ansible all -i inventory -u centos -e ansible_password=DevOps321 -m setup
+
+
+#ansible_date_time:  default  varible from facts
+
+- name: Play1
+  hosts: all
+      
+  tasks:
+   - name: Print URL var
+     ansible.builtin.debug:
+       msg: "{{ ansible_date_time }}"
