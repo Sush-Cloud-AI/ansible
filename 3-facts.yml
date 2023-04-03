@@ -17,8 +17,6 @@
 
 ## if variable is starting of the line we need to enclose in " "  as above
 
-
-  tasks:
    - name: Print block varibles
      ansible.builtin.debug:
       msg: "{{ ansible_mounts.ansible_mounts }}"
