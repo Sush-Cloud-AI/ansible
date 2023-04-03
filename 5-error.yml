@@ -4,8 +4,12 @@
   tasks:
     - name: Check if tomact is running or not
       shell: ps -f | grep java | grep -v grep    # grep -v grep will ignore the java process of grep
-      register: OUT  
+      register: OUT
+      ignore_errors: yes  
 
     - name: starting tomcat
       ansible.builtin.debug:
         msg: starting tomcat 
+
+  # if any process fails susequent task wont be executed and it will be terminated 
+  # to ignore the failure we have to add ignore_errors: yes 
