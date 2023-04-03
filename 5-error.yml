@@ -1,0 +1,11 @@
+
+- name: Play1
+  hosts: all
+  tasks:
+    - name: Check if tomact is running or not
+      shell: ps -f | grep java | grep -v grep    # grep -v grep will ignore the java process of grep
+      register: OUT  
+
+    - name: starting tomcat
+      ansible.builtin.debug:
+        msg: starting tomcat 
