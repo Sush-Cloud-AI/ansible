@@ -3,10 +3,10 @@
 - name: Play1
   hosts: all
   tasks:
-   - name: Run shell command
-     shell: uptime
-     register: OUT  # to show the output of the command , by default it wont show the output after execution
+    - name: Run shell command
+      shell: uptime
+      register: OUT  # to show the output of the command , by default it wont show the output after execution
 
-   - name: Print the output of uptime
-     ansible.builtin.debug:
-       msg: "{{ OUT }}"" # to get specific output only .stout
+    - name: Print the output of uptime
+      ansible.builtin.debug:
+        msg: "{{ OUT }}" # to get specific output only .stout
