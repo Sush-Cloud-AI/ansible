@@ -5,7 +5,7 @@
   vars_prompt:
     - name: URL
       prompt: Enter the URL    # Prompt varible will have higher precidence than gloabl
-      private: no
+      private: no        # will show what we are entering on the screen if no
       
   tasks:
    - name: Print URL var
