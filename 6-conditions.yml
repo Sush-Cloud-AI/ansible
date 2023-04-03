@@ -40,4 +40,4 @@
     - name: Demo on defined and undefined keywords
       ansible.builtin.debug:
         msg: sample is declared
-      when: sample is defined               
+      when: sample is defined               ## sample variable is defined in varible it will execute else will ignore
