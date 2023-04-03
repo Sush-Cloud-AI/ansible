@@ -1,0 +1,26 @@
+- name: Tags demo
+  hosts: all
+  tasks:
+    - name: Running web server installation 
+      ansible.internal.debug:
+        msg: web server installation
+      tags: web
+
+    - name: starting web server
+      ansible.internal.debug:
+        msg: web server start in progress
+      tags: web
+
+    - name: Running APP server installation 
+      ansible.internal.debug:
+        msg: APP server installation
+      tags: app
+  
+    - name: starting APP server
+      ansible.internal.debug:
+        msg: APP server start in progress
+      tags: app
+  
+
+  # when particual tags will be called while running playbook only those tasks will be executed 
+  # else all the tasks will run 
