@@ -24,13 +24,20 @@
   vars:
     action: true
     action1: false
+    sample: xyz   
   tasks:
     - name: Run ABC task
       ansible.builtin.debug:
         msg: Running ABC task
-      when: action
+      when: action             # will run because its true
 
     - name: Run GHJ task 
       ansible.builtin.debug:
         msg: Running GHJ task
-      when: action1
+      when: action1               # will skip because its false 
+
+
+    - name: Demo on defined and undefined keywords
+      ansible.builtin.debug:
+        msg: sample is declared
+      when: sample is defined               
