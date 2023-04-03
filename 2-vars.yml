@@ -13,10 +13,9 @@
      vars:
        URL: yahoo.com  ## local variables
 
-
-    - name: Print URL var
-      ansible.builtin.debug:
-         msg: The value of CLI_URL is {{ CLI_URL }}  # runtime varibles / command line
+   - name: Print URL var
+     ansible.builtin.debug:
+       msg: The value of CLI_URL is {{ CLI_URL }}  # runtime varibles / command line
 
 
 
