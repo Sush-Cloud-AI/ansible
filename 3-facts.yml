@@ -13,4 +13,12 @@
   tasks:
    - name: Print URL var
      ansible.builtin.debug:
-       msg: "{{ ansible_date_time }}"
+       msg: "{{ ansible_date_time }}"   # print varobles from facts and it doesent need decleration
+
+## if variable is starting of the line we need to enclose in " "  as above
+
+
+  tasks:
+   - name: Print block varibles
+     ansible.builtin.debug:
+      msg: "{{ ansible_mounts.ansible_mounts }}"
