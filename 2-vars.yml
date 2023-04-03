@@ -4,7 +4,8 @@
     URL: google.com   # gloabl/play level variable can be use in any tasks
   vars_prompt:
     - name: URL
-      prompt: Enter the URL
+      prompt: Enter the URL    # Prompt varible will have higher precidence than gloabl
+      private: no
       
   tasks:
    - name: Print URL var
@@ -24,7 +25,7 @@
 
 
 
-  # command line >Local variables > gloabl
+  # command line >Local variables >prompt varibale> gloabl
   #runtime varibles / command line -e CLI_URL=var
   # command line varibles will have the highest precidence -e URL=var will overide glabla aswell
   # as local 
