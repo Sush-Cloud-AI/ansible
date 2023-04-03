@@ -2,22 +2,22 @@
   hosts: all
   tasks:
     - name: Running web server installation 
-      ansible.internal.debug:
+      ansible.builtin.debug:
         msg: web server installation
       tags: web
 
     - name: starting web server
-      ansible.internal.debug:
+      ansible.builtin.debug:
         msg: web server start in progress
       tags: web
 
     - name: Running APP server installation 
-      ansible.internal.debug:
+      ansible.builtin.debug:
         msg: APP server installation
       tags: app
   
     - name: starting APP server
-      ansible.internal.debug:
+      ansible.builtin.debug:
         msg: APP server start in progress
       tags: app
   
