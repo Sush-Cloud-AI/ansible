@@ -15,3 +15,22 @@
 
 
 # will execute when the condtion matches others will be skipped
+
+# action a variable is true it executes other ise it will ignore 
+# defined and undefined are the predefined keywords
+
+- name: Demo on actions
+  hosts: all
+  vars:
+    action: true
+    action1: false
+  tasks:
+    - name: Run ABC task
+      ansible.builtin.debug:
+        msg: Running ABC task
+      when: action
+
+    - name: Run GHJ task 
+      ansible.builtin.debug:
+        msg: Running GHJ task
+      when: action1
