@@ -19,4 +19,4 @@
 
    - name: Print block varibles
      ansible.builtin.debug:
-      msg: "{{ ansible_mounts.ansible_mounts }}"
+      msg: "{{ ansible_default_ipv4.macaddress }}"
