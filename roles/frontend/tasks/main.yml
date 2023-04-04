@@ -7,12 +7,13 @@
 
 
 # download and extect module "unarchive module "
+# module will be called from common role .as its a repetative task
 
-- name: Download and extract
-  ansible.builtin.unarchive:
-    src: https://github.com/stans-robot-project/frontend/archive/main.zip
-    dest: /tmp
-    remote_src: yes # will be yes if the remote source is not in ansible server
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
 
 ### clean up the files / delte module  "ansible.builtin.file:""
 

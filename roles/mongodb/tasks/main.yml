@@ -38,7 +38,7 @@
 
 # Loading the mongodb schema "community.mongodb.mongodb_shell"
 
-- name: Run a js file containing MongoDB commands with pseudo-idempotency
+- name: Loading catalogue and users schema
   community.mongodb.mongodb_shell:
     file: "/tmp/mongodb-main/{{item}}.js"
     idempotent: yes
