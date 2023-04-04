@@ -4,7 +4,7 @@
     - name: Just a shell command
       shell: id
       register: OUT
-      become: yes  # like sudo su - will run a root user
+      #become: yes  # like sudo su - will run a root user
 
     - name: Display out put 
       debug:
