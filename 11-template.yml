@@ -11,3 +11,6 @@
 
 
 # template will do the ci=opy with addtion to parmaterize any value in the copy file . we can pass the values from commnd line or from varibles
+#command to pass from cli : ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 11-template.yml -e HOSTNAME=host.cli.com
+
+#cli >> vars
