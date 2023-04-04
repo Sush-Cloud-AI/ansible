@@ -10,3 +10,11 @@
   ansible.builtin.package:  
     name: mongodb-org             
     state: present
+
+# editing the mongod.conf file 
+# search and replace "ansible.builtin.replace:"
+- name: updating Mongodb Listining config
+  ansible.builtin.replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
