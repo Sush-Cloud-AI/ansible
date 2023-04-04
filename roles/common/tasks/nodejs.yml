@@ -1,5 +1,5 @@
 - name: Configuring YUM repo
-  ansible.builtin.shell: https://rpm.nodesource.com/setup_lts.x | sudo bash -
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash 
 
 - name: installing {{COMPONENT}}
   ansible.builtin.package:
