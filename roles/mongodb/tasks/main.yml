@@ -35,3 +35,13 @@
     src: "{{REPO_URL}}"
     dest: /tmp
     remote_src: yes # will be yes if the remote source is not in ansible server
+
+# Loading the mongodb schema "community.mongodb.mongodb_shell"
+
+- name: Run a js file containing MongoDB commands with pseudo-idempotency
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/{{item}}.js"
+    idempotent: yes
+  loop:
+    - catalogue
+    - users
