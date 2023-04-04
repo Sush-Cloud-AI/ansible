@@ -30,11 +30,13 @@
 
 # downloading and extracting the schema
 
-- name: Download and extract "{{ COMPONENT }}" Repo
-  ansible.builtin.unarchive:
-    src: "{{REPO_URL}}"
-    dest: /tmp
-    remote_src: yes # will be yes if the remote source is not in ansible server
+# download and extect module "unarchive module "
+# module will be called from common role .as its a repetative task
+
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
 
 # Loading the mongodb schema "community.mongodb.mongodb_shell"
 
