@@ -31,3 +31,9 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: cleanup
+
+  ## npm install
+
+- name: npm install  based on package.json.
+  community.general.npm:
+    path: /home/{{APP_USER}}/{{COMPONENT}}/
