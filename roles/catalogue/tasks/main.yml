@@ -1,0 +1,20 @@
+- name: Configuring YUM repo
+  ansible.builtin.shell: https://rpm.nodesource.com/setup_lts.x | sudo bash -
+
+- name: installing {{COMPONENT}}
+  ansible.builtin.package:
+    name:
+      - nodejs
+      - gcc-c++
+    state: present
+
+- name: Creating Appuser account {{APP_USER}}
+  ansible.builtin.user:
+    name: "{{APP_USER}}"
+
+# module will be called from common role .as its a repetative task
+
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
