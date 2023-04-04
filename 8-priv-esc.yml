@@ -1,10 +1,11 @@
 - name: Demo on privilage escalation
   hosts: all
+  #become: yes             ## will be executed globally 
   tasks:
     - name: Just a shell command
       shell: id
       register: OUT
-      #become: yes  # like sudo su - will run a root user
+      become: yes  # like sudo su - will run a root user/ will be executed only for this task 
 
     - name: Display out put 
       debug:

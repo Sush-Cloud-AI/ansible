@@ -1,0 +1,12 @@
+- name: demo lopps
+  hosts: all
+  tasks:
+    - name: loops
+      debug:
+        msg: "Value is {{ item }}"
+      loop:
+        - 10    # each item is refered as item variable
+        - 20
+        - ABC
+
+  # will loop through the varibles 10, 20, ABC
