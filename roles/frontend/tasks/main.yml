@@ -1,3 +1,4 @@
-- name: frontend
-  ansible.builtin.debug:
-    msg: Starting frontend congiguration
+- name: Install nginx
+  ansible.builtin.package:  # to install packages irespective of flavour of linux can use yum package also but 
+    name: nginx              # will only work for redhat and centos machines
+    state: present
