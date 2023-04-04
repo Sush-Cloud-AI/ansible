@@ -24,3 +24,4 @@
 
   # when particual tags will be called while running playbook only those tasks will be executed 
   # else all the tasks will run 
+  # command : ansible-playbook -i inventory -u centos -e ansible_password=DevOps321 7-tags.yml -t app

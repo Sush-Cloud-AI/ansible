@@ -1,0 +1,12 @@
+- name: Demo on privilage escalation
+  hosts: all
+  tasks:
+    - name: Just a shell command
+      shell: id
+      register: OUT
+      become: yes  # like sudo su - will run a root user
+
+    - name: Display out put 
+      debug:
+        msg: "{{ OUT }}"
+
