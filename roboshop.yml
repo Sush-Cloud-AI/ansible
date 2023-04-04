@@ -1,8 +1,6 @@
 - name: Playbook to setup roboshop proj
-  hosts: mongodb
+  hosts: "{{ COMPONENT }}"
   become: yes    # to run as root user
   roles:
-    #- frontend
-    #- catalogue
-    - mongodb
+    - "{{ COMPONENT }}"
 

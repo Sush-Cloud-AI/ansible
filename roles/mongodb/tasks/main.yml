@@ -18,3 +18,12 @@
     path: /etc/mongod.conf
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
+
+# starting mongodb service ## databases hould be started gracfully should avid restart
+
+
+- name: Enabling and starting Mongodb
+  ansible.builtin.service:
+    name: mongod
+    state: started
+    enabled: yes   
