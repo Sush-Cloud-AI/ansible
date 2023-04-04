@@ -14,5 +14,9 @@
     dest: /tmp
     remote_src: yes # will be yes if the remote source is not in ansible server
 
+### clean up the files / delte module  "ansible.builtin.file:""
 
-
+- name: Remove file (delete file)
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent ###  means deleting 
