@@ -27,3 +27,11 @@
     name: mongod
     state: started
     enabled: yes   
+
+# downloading and extracting the schema
+
+- name: Download and extract "{{ COMPONENT }}" Repo
+  ansible.builtin.unarchive:
+    src: "{{REPO_URL}}"
+    dest: /tmp
+    remote_src: yes # will be yes if the remote source is not in ansible server
