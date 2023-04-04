@@ -1,0 +1,7 @@
+- name: demo on copy
+  hosts: all
+  tasks:
+    - name: copy proxy file to all machine 
+      ansible.builtin.copy :
+        src: proxy.conf
+        dest: /home/centos
