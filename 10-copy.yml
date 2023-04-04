@@ -5,3 +5,9 @@
       ansible.builtin.copy :
         src: proxy.conf
         dest: /home/centos
+
+
+
+
+## will copy the file from src to estination .. if we run it again without changes 
+## it wont copy . if there are nay changes it will add or remove the content to the file

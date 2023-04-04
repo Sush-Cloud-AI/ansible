@@ -1,0 +1,13 @@
+- name: demo on template
+  hosts: all
+  vars:
+    HOSTNAME: host.google.com ## will pick value from here or if cli it will pick from cli
+  tasks:
+    - name: copy proxy file to all machine 
+      ansible.builtin.template :
+        src: proxy.conf
+        dest: /home/centos
+
+
+
+# template will do the ci=opy with addtion to parmaterize any value in the copy file . we can pass the values from commnd line or from varibles
