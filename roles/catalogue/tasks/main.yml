@@ -18,5 +18,4 @@
     src: /tmp/{{COMPONENT}}-main/
     dest: /home/{{APP_USER}}/{{COMPONENT}}
     remote_src: yes
-  become_user: "{{APP_USER}"   ## will run as roboshop user else will run as root as we have set the whole playbook to run as root
-  
+  become_user: "{{APP_USER}}"   ## will run as roboshop user else will run as root as we have set the whole playbook to run as root
