@@ -1,25 +1,7 @@
-- name: Configuring YUM repo
-  ansible.builtin.shell: https://rpm.nodesource.com/setup_lts.x | sudo bash -
+# instalong nodejs and other setps are writien in nodejs.yml file under comman and 
+# it is been called here 
 
-- name: installing {{COMPONENT}}
-  ansible.builtin.package:
-    name:
-      - nodejs
-      - gcc-c++
-    state: present
-
-
-## create user
-# module will be called from common role .as its a repetative task
-
-- name: Create user {{APP_USER}}
-  ansible.builtin.include_role:
-    name: common ## role /folder file location 
-    tasks_from: createuser ## file name
-
-# module will be called from common role .as its a repetative task
-
-- name: Downloading and extracting {{COMPONENT}}
+- name: Configuring nodejs
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
+    tasks_from: nodejs
