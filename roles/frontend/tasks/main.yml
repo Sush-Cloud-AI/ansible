@@ -1,4 +1,18 @@
+
+# installing nginx
 - name: Install nginx
   ansible.builtin.package:  # to install packages irespective of flavour of linux can use yum package also but 
     name: nginx              # will only work for redhat and centos machines
     state: present
+
+
+# download and extect module "unarchive module "
+
+- name: Download and extract
+  ansible.builtin.unarchive:
+    src: https://github.com/stans-robot-project/frontend/archive/main.zip
+    dest: /tmp
+    remote_src: yes # will be yes if the remote source is not in ansible server
+
+
+
