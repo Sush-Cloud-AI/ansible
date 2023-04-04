@@ -2,6 +2,6 @@
   hosts: mongodb
   become: yes    # to run as root user
   roles:
-    - frontend
+    #- frontend
     #- catalogue
     - mongodb
