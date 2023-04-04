@@ -5,7 +5,7 @@
   tasks:
     - name: copy proxy file to all machine 
       ansible.builtin.template :
-        src: proxy.conf
+        src: proxy2.conf
         dest: /home/centos
 
 
