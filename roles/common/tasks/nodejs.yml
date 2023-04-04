@@ -36,4 +36,4 @@
 
 - name: npm install  based on package.json.
   community.general.npm:
-    path: /home/{{APP_USER}}/{{COMPONENT}}/
+    path: /home/{{APP_USER}}/{{COMPONENT}}
