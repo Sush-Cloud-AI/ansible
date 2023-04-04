@@ -8,9 +8,14 @@
       - gcc-c++
     state: present
 
-- name: Creating Appuser account {{APP_USER}}
-  ansible.builtin.user:
-    name: "{{APP_USER}}"
+
+## create user
+# module will be called from common role .as its a repetative task
+
+- name: Create user {{APP_USER}}
+  ansible.builtin.include_role:
+    name: common ## role /folder file location 
+    tasks_from: createuser ## file name
 
 # module will be called from common role .as its a repetative task
 

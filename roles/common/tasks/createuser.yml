@@ -1,0 +1,7 @@
+## create user task
+- name: Creating Appuser account {{APP_USER}}
+  ansible.builtin.user:
+    name: "{{APP_USER}}"
+
+  
+
