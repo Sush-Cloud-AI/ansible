@@ -23,3 +23,11 @@
   ansible.builtin.include_role:
     name: common
     tasks_from: download
+
+
+# calling cleanup.yml
+
+- name: cleanup of  {{COMPONENT}}, moving  and changing the permisions
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: cleanup
