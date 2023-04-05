@@ -36,3 +36,10 @@
 - name: npm install  based on package.json.
   community.general.npm:
     path: /home/{{APP_USER}}/{{COMPONENT}}/
+
+
+
+- name: configuring and starting  {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd

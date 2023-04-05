@@ -9,3 +9,10 @@
 ## cleaning up of the old files and copying is palced in cleanup.yml 
 #and is called in nodejs.yml in common folder
 
+## copying the systemd file  from files 
+
+# copying the repo
+## in common systemd and called in nodejs common
+
+# starting and enabling the service 
+## in common systemd and called in nodejs common
