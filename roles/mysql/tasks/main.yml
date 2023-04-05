@@ -11,6 +11,7 @@
       - mysql-community-server
       - MySQL-python            
     state: present
+## installing MYsl-python to use it foe db password check "community.mysql.mysql_info"
 
 - name: Enabling and starting {{COMPONENT}}
   ansible.builtin.service:
@@ -22,4 +23,10 @@
 - name: checking the DB Password
   community.mysql.mysql_info:
     login_user: root
-    login_password: RoboShop@1 
+    login_password: RoboShop@1
+  ignore_errors: yes
+  register: mysql_stat
+
+- name: Reset Password
+  debug:
+    msg: Resseting the password and the info is  {{mysql_stat}}
