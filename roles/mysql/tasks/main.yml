@@ -30,3 +30,4 @@
 - name: Reset Password
   debug:
     msg: Resseting the password and the info is  {{mysql_stat}}
+  when: mysql_stat.failed
