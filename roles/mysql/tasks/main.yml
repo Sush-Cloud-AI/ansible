@@ -15,4 +15,10 @@
   ansible.builtin.service:
     name: mysqld
     state: started
-    enabled: yes  
+    enabled: yes
+
+
+- name: checking the DB Password
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: RoboShop@1 
