@@ -49,14 +49,7 @@
   register: PLUG_YESNO
   ignore_errors: yes
 
-- name: uninstall password_validate plugin
-  when: PLUG_YESNO.rc == 0   # .rc is the exit code in ansible output 
-  block:
-    - name: copy uninstall_plugin command to temp file
-      ansible.builtin.copy:
-      src: uninstallplugin.sql
-      dest: /tmp/uninstallplugin.sql
-  
+
 
 
 
