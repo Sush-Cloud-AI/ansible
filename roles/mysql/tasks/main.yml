@@ -27,8 +27,12 @@
   ignore_errors: yes
   register: mysql_stat
 
-
-
+- name: Rest password block
+  when: mysql_stat.failed
+  block:
+    - name: Resetting the DB Password
+      ansible.builtin.shell: grep "temporary password" /var/log/mysqld.log | awk '{print $NF}'
+      register: DEFAULT_ROOT_PASSWORD
 
 
     
