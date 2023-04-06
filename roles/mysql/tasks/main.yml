@@ -68,6 +68,14 @@
     name: common
     tasks_from: download
 
+- name: Load schema
+  community.mysql.mysql_db:
+    state: import
+    name: all
+    login_user: root
+    login_password: RoboShop@1
+    target: /tmp/mysql-main/shipping.sql
+
 
 
 
