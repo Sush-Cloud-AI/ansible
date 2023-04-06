@@ -61,6 +61,12 @@
       ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/uninstallplugin.sql
 
 
+# module will be called from common role .as its a repetative task
+
+- name: Downloading and extracting {{COMPONENT}} schema
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
 
 
 
