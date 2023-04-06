@@ -27,22 +27,34 @@
     tasks_from: cleanup
 
 
-  ## npm install
+  
 
 - name: Install python dependencies
   ansible.builtin.pip:
     requirements: /home/{{APP_USER}}/{{COMPONENT}}/requirements.txt
     executable: pip3
 
-- name: print APPUSER_REGI
-  ansible.builtin.debug:
-    msg: "{{APPUSER_REGI}}"
+#- name: print APPUSER_REGI
+#  ansible.builtin.debug:
+#    msg: "{{APPUSER_REGI}}"
 
 
 # updaying the payament.ini file with uid and gid 
 # under app user creation "createuser.yml we add a register to get uid and gid dynamically and use ot to update "
 
-#- name: configuring and starting  {{COMPONENT}}
-#  ansible.builtin.include_role:
-#    name: common
-#    tasks_from: systemd
+- name: Changing UID in {{COMPONENT}}.ini
+  ansible.builtin.lineinfile:
+    path: /home/{{APP_USER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^uid'   ## ^ means start of line
+    line: uid = "{{APPUSER_REGI.uid}}"
+
+- name: Changing UID in {{COMPONENT}}.ini
+  ansible.builtin.lineinfile:
+    path: /home/{{APP_USER}}/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^gid'      
+    line: gid = "{{APPUSER_REGI.group}}"
+
+- name: configuring and starting  {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
