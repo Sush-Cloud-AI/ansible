@@ -1,0 +1,40 @@
+- name: installing {{COMPONENT}}
+  ansible.builtin.package:
+    name:
+      - python36
+      - gcc-c++
+      - python3-devel
+    state: present
+
+- name: Create user {{APP_USER}}
+  ansible.builtin.include_role:
+    name: common ## role /folder file location 
+    tasks_from: createuser ## file name
+
+# module will be called from common role .as its a repetative task
+
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+
+# calling cleanup.yml
+
+- name: cleanup of  {{COMPONENT}}, moving  and changing the permisions
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: cleanup
+
+
+  ## npm install
+
+- name: Install python dependencies
+  ansible.builtin.pip:
+    requirements: /home/{{APP_USER}}/{{COMPONENT}}/requirements.txt
+    executable: pip3
+
+#- name: configuring and starting  {{COMPONENT}}
+#  ansible.builtin.include_role:
+#    name: common
+#    tasks_from: systemd
