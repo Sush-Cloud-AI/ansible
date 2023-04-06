@@ -50,7 +50,8 @@
   ignore_errors: yes
 
 - name: uninstall password_validate plugin
-  when: PLUG_YESNO.rc == 0   # .rc is the exit code in ansible output 
+  when: PLUG_YESNO.rc == 0
+
 
 
 
