@@ -2,6 +2,7 @@
 - name: Creating Appuser account {{APP_USER}}
   ansible.builtin.user:
     name: "{{APP_USER}}"
+  register: APPUSER_REGI
 
   
 

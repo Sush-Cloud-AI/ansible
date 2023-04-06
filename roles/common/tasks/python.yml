@@ -34,6 +34,14 @@
     requirements: /home/{{APP_USER}}/{{COMPONENT}}/requirements.txt
     executable: pip3
 
+- name: print APPUSER_REGI
+  ansible.builtin.debug:
+    msg: "{{APPUSER_REGI}}"
+
+
+# updaying the payament.ini file with uid and gid 
+# under app user creation "createuser.yml we add a register to get uid and gid dynamically and use ot to update "
+
 #- name: configuring and starting  {{COMPONENT}}
 #  ansible.builtin.include_role:
 #    name: common
