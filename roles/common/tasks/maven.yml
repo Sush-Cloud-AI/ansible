@@ -29,3 +29,10 @@
   args:
     chdir: /home/{{APP_USER}}/{{COMPONENT}}
   become_user: "{{APP_USER}}"
+
+
+## configuring the systemd.service and starting the service
+- name: configuring and starting  {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd
