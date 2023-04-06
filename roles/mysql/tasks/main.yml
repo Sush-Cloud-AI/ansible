@@ -48,8 +48,8 @@
   ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
   register: PLUG_YESNO
   ignore_errors: yes
-
-- name: uninstall password_validate plugin
+  
+- name: Uninstall Plugin validate
   when: PLUG_YESNO.rc == 0
 
 
