@@ -45,7 +45,7 @@
 ## uninstall plugin
 
 - name: password_validate plugin is installed or not validate
-  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
+  ansible.builtin.shell: echo show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
   register: PLUG_YESNO
   ignore_errors: yes
   
