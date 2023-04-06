@@ -51,6 +51,12 @@
   
 - name: Uninstall Plugin validate
   when: PLUG_YESNO.rc == 0
+  block:
+    - name: copy uninstall_plugin command to temp file
+      ansible.builtin.copy:
+      src: uninstallplugin.sql
+      dest: /tmp/uninstallplugin.sql
+
 
 
 
