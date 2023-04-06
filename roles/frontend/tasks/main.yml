@@ -39,11 +39,16 @@
   ansible.builtin.copy :
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
+  notify: Restart-nginx ## when there is change in proxy file it will restart 
 
 # restarting and enabling the service .. "ansible.builtin.service"
+## we cant restart the ngnix evertime as there will be down time 
+## so we need to restart only when there is a change inthe proxy file
+## we can use handlers to do this "notify: Restart-nginx" in handlers folder
+
 
 - name: Enabling and restarting nginx
   ansible.builtin.service:
     name: nginx
-    state: restarted
+    state: started
     enabled: yes   
