@@ -57,8 +57,8 @@
         src: uninstallplugin.sql
         dest: /tmp/uninstallplugin.sql
 
-- name: uninstall plugin if installed
-  ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/uninstallplugin.sql
+    - name: uninstall plugin if installed
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/uninstallplugin.sql
 
 
 
