@@ -51,7 +51,7 @@
   
 - name: Uninstall Plugin validate
   ansible.builtin.debug:
-    msg: "{{PLUG_YESNO}}"
+    msg: "{{PLUG_YESNO.rc}}"
 
 
 
