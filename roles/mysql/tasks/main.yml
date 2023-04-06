@@ -19,7 +19,7 @@
     state: started
     enabled: yes
 
-
+## resetting the password
 - name: checking the DB Password
   community.mysql.mysql_info:
     login_user: root
@@ -42,6 +42,24 @@
     - name: Resetting mysql password
       ansible.builtin.shell: mysql --connect-expired-password -uroot -p"{{DEFAULT_ROOT_PASSWORD.stdout}}" < /tmp/rootpass.sql
     
+## uninstall plugin
+
+- name: password_validate plugin is installed or not validate
+  ansible.builtin.shell: show plugins | mysql -uroot -pRoboShop@1 | grep validate_password
+  register: PLUG_YESNO
+  ignore_errors: yes
+
+- name: uninstall password_validate plugin
+  when: PLUG_YESNO.rc == 0   # .rc is the exit code in ansible output 
+  block:
+    - name: copy uninstall_plugin command to temp file
+      ansible.builtin.copy:
+      src: uninstallplugin.sql
+      dest: /tmp/uninstallplugin.sql
+  
+    - name: uninstall plugin if installed
+      ansible.builtin.shell: mysql --connect-expired-password -uroot -pRoboShop@1 < /tmp/uninstallplugin.sql
+
 
 
 
