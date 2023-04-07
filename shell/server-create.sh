@@ -1,5 +1,6 @@
 #!/bin/bash
-AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=devops" | jq '.Images[].ImageId' | sed -e 's/"//g')
+#AMI_ID=$(aws ec2 describe-images --filters "Name=name,Values=devops" | jq '.Images[].ImageId' | sed -e 's/"//g')
+AMI_ID="ami-0db68915b3e8a3ce3"
 echo $AMI_ID
 COMPONENT=$1
 SGID="sg-03ec6d3f23f96aefd"
