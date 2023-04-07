@@ -1,5 +1,6 @@
 - name: Playbook to setup roboshop proj
-  hosts: "{{ COMPONENT }}"
+  #hosts: "{{ COMPONENT }}"  ## for ansible push
+  hosts: localhost    ## for ansible pull 
   become: yes    # to run as root user
   roles:
     - "{{ COMPONENT }}"

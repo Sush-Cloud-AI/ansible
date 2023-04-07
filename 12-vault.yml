@@ -20,3 +20,11 @@
       debug:
         msg: Password = {{PASS}}
 
+
+
+## "ansible-playbook 12-vault.yml  --ask-vault-password" 
+## password is password
+
+
+# Ansible vault is not used because of intgration issues with jenkins teraform encripta
+# insted we uses aws secrete manager or hashicorp vault
