@@ -36,5 +36,5 @@ if [ "$1" == "all" ] ; then
         create_server
     done
 else
-    SERVER_CREATE
+    create_server
 fi
