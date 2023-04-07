@@ -19,6 +19,12 @@
     state: started
     enabled: yes
 
+# new fix, ensure you also install PyMySQL
+- name: Installing PyMySQL
+  ansible.builtin.pip:   #Pythong 2 
+    name: PyMySQL
+    executable: pip3  #Installation with pip3
+
 ## resetting the password
 - name: checking the DB Password
   community.mysql.mysql_info:
@@ -29,6 +35,7 @@
 
 - name: Rest password block
   when: mysql_stat.failed
+  ignore_errors: yes
   block:
     - name: Resetting the DB Password
       ansible.builtin.shell: grep "temporary password" /var/log/mysqld.log | awk '{print $NF}'
