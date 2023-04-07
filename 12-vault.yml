@@ -1,0 +1,22 @@
+### encrypting sensity information using vault and ansible pull demo
+
+## to encripta sting use "ansible-vault encrypt_string abc@123"
+#copy and paste the encrypted value inplace of the passsowrd
+# the password nedds to be set in the terminal
+
+- name: vault demo and ansible pull
+  hosts: localhost  # to use ansible pull
+  vars:
+    PASS: !vault |  ##abc@123
+                    $ANSIBLE_VAULT;1.1;AES256
+                    31333731663932376263623561353666316561386634376636643336366362646336336530633865
+                    3862616332376535393432373036646332363630643964370a336461366662633334366161633861
+                    33636539643664383861663863633263333433616235666365363762663039363635663030633762
+                    3335656634666133610a313434393265373535396639653630623662623534316638343638373933
+                    3662
+
+  tasks:
+    - name: Print a psw
+      debug:
+        msg: Password = {{PASS}}
+
