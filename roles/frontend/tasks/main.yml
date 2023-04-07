@@ -36,7 +36,7 @@
 
 ## copy conf file placed in files/roshop.conf
 - name: copy proxy file to all machine 
-  ansible.builtin.copy :
+  ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
   notify: Restart-nginx ## when there is change in proxy file it will restart 
