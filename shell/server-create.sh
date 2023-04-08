@@ -3,7 +3,7 @@
 
 
 
-if [ "$1" = ""] | [ "$2" = ""] ; then
+if [ "$1" = ""] | [ "$2" = "" ] ; then
     echo -e "\e[31m \n Valid options are component -name or all and env \e[0m \n \e[33m Ex: \n\t bash create-server.sh payment dev \n \e[0m "
     exit 1
 fi 
