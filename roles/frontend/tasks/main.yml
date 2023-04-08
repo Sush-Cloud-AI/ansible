@@ -49,7 +49,7 @@
   ansible.builtin.template:
      src: nginx.conf
      dest: /etc/nginx/nginx.conf
-  #notify: Restart-Nginx   # When ever there is a change in this file, restart of nginx will happen
+  notify:  Restart-nginx   # When ever there is a change in this file, restart of nginx will happen
 
 - name: Enabling and restarting nginx
   ansible.builtin.service:
