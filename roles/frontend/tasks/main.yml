@@ -45,7 +45,11 @@
 ## we cant restart the ngnix evertime as there will be down time 
 ## so we need to restart only when there is a change inthe proxy file
 ## we can use handlers to do this "notify: Restart-nginx" in handlers folder
-
+- name: copy nginx file 
+  ansible.builtin.template:
+     src: nginx.conf
+     dest: /etc/nginx/nginx.conf
+  notify: Restart-Nginx   # When ever there is a change in this file, restart of nginx will happen
 
 - name: Enabling and restarting nginx
   ansible.builtin.service:
