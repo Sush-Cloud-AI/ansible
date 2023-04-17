@@ -62,3 +62,7 @@
             state: 'absent'
             instance_ids: '{{ INSTANCE_ID }}'
             region: us-east-1
+
+
+## ansible-playbook robo-ec2.yml -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=mongodb -e ENV=dev
+## command to run this
