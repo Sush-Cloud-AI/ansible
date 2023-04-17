@@ -1,3 +1,5 @@
+
+
 pipeline {
     agent any
     parameters{
@@ -12,11 +14,29 @@ pipeline {
     }
 
     stages {
-        stage('dry-run'){
-            steps {
-                sh "env" // to see the env variables for ssh credential keys to use it in ansible user and passowrd in the command to run ansible 
-                sh "ansible-playbook robo-ec2.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"  // commansd to run the dry run ec2 and destroy 
+        stage('Lint check'){
+            when { branch pattern: "feature-.*", comparator: "REGEXP"}  //
+            steps{
+                sh "env"
+                sh " echo style check and running in feature branch"
             }
         }
+
+
+
+        //stage('dry-run'){
+            //steps {
+                //sh "env" // to see the env variables for ssh credential keys to use it in ansible user and passowrd in the command to run ansible 
+                //sh "ansible-playbook robo-ec2.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"  // commansd to run the dry run ec2 and destroy 
+            //}
+        //}
+        
+        stage('promote to prod'){
+            when{ branch 'main'} // will run only when the branch is main 
+            steps{    
+                sh " echo runs when you push a git tag"
+            }
+        }
+        
     }
 }
