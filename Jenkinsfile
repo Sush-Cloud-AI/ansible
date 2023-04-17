@@ -15,7 +15,7 @@ pipeline {
         stage('dry-run'){
             steps {
                 sh "env" // to see the env variables for ssh credential keys to use it in ansible user and passowrd in the command to run ansible 
-                sh "ansible-playbook robo-ec2.yml -e ansible_user=centos -e ansible_password=DevOps321 -e COMPONENT=mongodb -e ENV=dev"  // commansd to run the dry run ec2 and destroy 
+                sh "ansible-playbook robo-ec2.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"  // commansd to run the dry run ec2 and destroy 
             }
         }
     }
