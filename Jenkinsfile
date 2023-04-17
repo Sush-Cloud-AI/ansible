@@ -24,7 +24,7 @@ pipeline {
 
 
 
-        stage('dry-run'){ // will run against only hen PR is rasied 
+        stage('dry-run'){ // will run against only hen PR is rasied . can check in pr tab in jenkins
             when { branch pattern: "PR-.*", comparator: "REGEXP"}  // use . befor *  for regex missing in official doc of jenkins
             steps {
                 sh "env" // to see the env variables for ssh credential keys to use it in ansible user and passowrd in the command to run ansible 
