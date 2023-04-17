@@ -2,7 +2,7 @@ pipeline {
     agent any
     parameters{
 
-            string(name: 'COMPONENT', defaultValue: '', description: 'Enter the name of component.') // supplying value for ENV and COMPONENT in the cammand to parmetrise it.
+            string(name: 'COMPONENT', defaultValue: 'mongodb', description: 'Enter the name of component.') // supplying value for ENV and COMPONENT in the cammand to parmetrise it.
             choice(name: 'ENV', choices: ['dev', 'prod'], description: 'Choose the environment')
     }
 
