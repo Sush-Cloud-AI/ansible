@@ -34,11 +34,11 @@ pipeline {
         }
 
         stage('Tagging'){
-            when{ branch 'main' } // will run when a tag is pushed . Tags are only pushed in main branch and this stage will run 
+            when{ branch 'main' } // if the branch is main . in automatic tagging  the tags are pushed 
             steps{
                 
-                git branch: 'main', url: "https://${SGIT_USR}:${SGIT_PSW}@github.com/Sush-Cloud-AI/ansible.git"   
-                sh "bash -x auto-tag.sh"
+                git branch: 'main', url: "https://${SGIT_USR}:${SGIT_PSW}@github.com/Sush-Cloud-AI/ansible.git"   // the git is cloned for the girt to clone. 
+                sh "bash -x auto-tag.sh"  // this is the code to auto increment the tag and push it 
             }
         }
 
