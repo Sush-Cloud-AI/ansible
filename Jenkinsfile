@@ -11,6 +11,7 @@ pipeline {
     environment {                   // declaring env variables
 
         SSH_CRED = credentials('ssh-centos7') // masking the credentials using jenins secret manager .
+        SGIT = credentials('github-token')
     }
 
     stages {
@@ -32,12 +33,12 @@ pipeline {
             }
         }
         
-        stage('Running on tags'){
-            when{ expression {env.TAG_NAME != null}} // will run when a tag is pushed . Tags are only pushed in main branch and this stage will run 
-            steps{    
-                sh " echo runs when you push a git tag"
-            }
-        }
+        //stage('Running on tags'){
+        //    when{ expression {env.TAG_NAME != null}} // will run when a tag is pushed . Tags are only pushed in main branch and this stage will run 
+        //    steps{    
+        //        sh " echo runs when you push a git tag"
+        //    }
+        //}
         
     }
 }

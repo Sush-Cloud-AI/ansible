@@ -6,4 +6,12 @@ echo "Latest_TAG: $c1.$c2.$c3"
 c3=$((c3+1))
 VERSION="$c1.$c2.$c3"
 echo  "New tag is : $VERSION"
-# test
+
+git tag $VERSION
+
+echo "Pushing new tag $VERSION"
+git push --tags
+
+echo "New TAG is created and pushed
+
+echo " BYE !!!!!!"
