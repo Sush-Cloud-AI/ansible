@@ -1,4 +1,4 @@
-
+// promotion stratergy 
 
 pipeline {
     agent any
@@ -32,8 +32,8 @@ pipeline {
             }
         }
         
-        stage('promote to prod'){
-            when{ branch 'main'} // will run only when the branch is main 
+        stage('Running on tags'){
+            when{ expression {env.TAG_NAME != null}} // will run only when the branch is main 
             steps{    
                 sh " echo runs when you push a git tag"
             }
