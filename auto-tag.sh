@@ -12,6 +12,6 @@ git tag $VERSION
 echo "Pushing new tag $VERSION"
 git push --tags
 
-echo "New TAG is created and pushed
+echo "New TAG is created and pushed"
 
 echo " BYE !!!!!!"
