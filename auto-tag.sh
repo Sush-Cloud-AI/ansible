@@ -6,3 +6,4 @@ echo "Latest_TAG: $c1.$c2.$c3"
 c3=$((c3+1))
 VERSION="$c1.$c2.$c3"
 echo  "New tag is : $VERSION"
+# test
