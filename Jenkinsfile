@@ -36,7 +36,7 @@ pipeline {
         stage('Tagging'){
             when{ branch 'main' } // will run when a tag is pushed . Tags are only pushed in main branch and this stage will run 
             steps{
-                sh "ENV"
+                sh "env"
                 git branch: 'main', url: 'https://$(GIT_USR)github.com/Sush-Cloud-AI/ansible.git'    
                 sh "bash -x auto-tag.sh"
             }
