@@ -32,6 +32,17 @@ pipeline {
                 sh "ansible-playbook robo-ec2.yml -e ansible_user=${SSH_CRED_USR} -e ansible_password=${SSH_CRED_PSW} -e COMPONENT=${params.COMPONENT} -e ENV=${params.ENV}"  // commansd to run the dry run ec2 and destroy 
             }
         }
+
+        stage('Tagging'){
+            when{ branch 'main' } // will run when a tag is pushed . Tags are only pushed in main branch and this stage will run 
+            steps{
+                sh "ENV"
+                git branch: 'main', url: 'https://$(GIT_USR)github.com/Sush-Cloud-AI/ansible.git'    
+                sh "bash -x auto-tag.sh"
+            }
+        }
+
+
         
         //stage('Running on tags'){
         //    when{ expression {env.TAG_NAME != null}} // will run when a tag is pushed . Tags are only pushed in main branch and this stage will run 
@@ -42,3 +53,4 @@ pipeline {
         
     }
 }
+
