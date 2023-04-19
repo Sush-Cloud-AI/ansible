@@ -1,7 +1,0 @@
-# instalong maven and other setps are writien in maven.yml file under comman and 
-# it is been called here . For shipping
-
-- name: Configuring nodejs
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: maven
