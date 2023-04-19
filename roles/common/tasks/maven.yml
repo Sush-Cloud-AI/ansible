@@ -1,0 +1,38 @@
+- name: installing {{COMPONENT}}
+  ansible.builtin.package:
+    name:
+      - maven
+    state: present
+
+- name: Create user {{APP_USER}}
+  ansible.builtin.include_role:
+    name: common ## role /folder file location 
+    tasks_from: createuser ## file name
+
+
+# module will be called from common role .as its a repetative task
+
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+# calling cleanup.yml
+
+- name: cleanup of  {{COMPONENT}}, moving  and changing the permisions
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: cleanup
+
+- name: Generating the articact using mvn clean package
+  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /home/{{APP_USER}}/{{COMPONENT}}
+  become_user: "{{APP_USER}}"
+
+
+## configuring the systemd.service and starting the service
+- name: configuring and starting  {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: systemd

@@ -1,0 +1,7 @@
+# same as catalogue .. every function is defined insied modejs under common
+
+
+- name: Configuring nodejs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: nodejs

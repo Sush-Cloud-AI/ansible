@@ -1,0 +1,58 @@
+
+# installing nginx
+- name: Install nginx
+  ansible.builtin.package:  # to install packages irespective of flavour of linux can use yum package also but 
+    name: nginx              # will only work for redhat and centos machines
+    state: present
+
+
+# download and extect module "unarchive module "
+# module will be called from common role .as its a repetative task
+
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+
+### clean up the files / delte module  "ansible.builtin.file:""
+
+- name: Remove file (delete file)
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent ###  means deleting 
+
+
+# copy module ansible
+
+- name: copy proxy file to all machine 
+  ansible.builtin.copy :
+    src: /tmp/    #frontend-main/static/
+    dest: /usr/share/nginx/html
+    remote_src: yes
+
+# if source and diatination / . its important to know you what you aming the directory
+# not just the content
+
+## copy conf file placed in files/roshop.conf
+- name: copy proxy file to all machine 
+  ansible.builtin.template:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+  notify: Restart-nginx ## when there is change in proxy file it will restart 
+
+# restarting and enabling the service .. "ansible.builtin.service"
+## we cant restart the ngnix evertime as there will be down time 
+## so we need to restart only when there is a change inthe proxy file
+## we can use handlers to do this "notify: Restart-nginx" in handlers folder
+- name: copy nginx file 
+  ansible.builtin.template:
+     src: nginx.conf
+     dest: /etc/nginx/nginx.conf
+  notify:  Restart-nginx   # When ever there is a change in this file, restart of nginx will happen
+
+- name: Enabling and restarting nginx
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: yes   

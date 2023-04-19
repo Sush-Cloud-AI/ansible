@@ -1,0 +1,7 @@
+# instalong python and other setps are writien in python.yml file under comman and 
+# it is been called here 
+
+- name: Configuring nodejs
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: python
