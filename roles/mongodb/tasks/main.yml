@@ -36,7 +36,7 @@
 - name: Downloading and extracting {{COMPONENT}}
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
+    tasks_from: github-dwld
 
 # Loading the mongodb schema "community.mongodb.mongodb_shell"
 
