@@ -12,10 +12,7 @@
 
 # module will be called from common role .as its a repetative task
 
-- name: Downloading and extracting {{COMPONENT}}
-  ansible.builtin.include_role:
-    name: common
-    tasks_from: download
+
 
 # calling cleanup.yml
 
@@ -24,11 +21,18 @@
     name: common
     tasks_from: cleanup
 
-- name: Generating the articact using mvn clean package
-  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
-  args:
-    chdir: /home/{{APP_USER}}/{{COMPONENT}}
-  become_user: "{{APP_USER}}"
+
+- name: Downloading and extracting {{COMPONENT}}
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: download
+
+# for github download 
+# - name: Generating the articact using mvn clean package
+#   ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+#   args:
+#     chdir: /home/{{APP_USER}}/{{COMPONENT}}
+#   become_user: "{{APP_USER}}"
 
 
 ## configuring the systemd.service and starting the service

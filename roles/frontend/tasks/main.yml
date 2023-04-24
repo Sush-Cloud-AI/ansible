@@ -3,12 +3,20 @@
     name: nginx 
     state: present 
 
-# Use this for GitHub.
+# # Use this for GitHub.
 
-- name: Download and extracting {{COMPONENT}}
-  ansible.builtin.include_role:
-    name: common 
-    tasks_from: download 
+# - name: Download and extracting {{COMPONENT}}
+#   ansible.builtin.include_role:
+#     name: common 
+#     tasks_from: download
+
+# Download from Nexus
+
+- name: Download and extracting {{COMPONENT}} from NEXUS
+  ansible.builtin.unarchive:
+    src: "{{NEXUS_URL}}"
+    dest: /tmp
+    remote_src: yes  ## This will be yes, if
 
 
 

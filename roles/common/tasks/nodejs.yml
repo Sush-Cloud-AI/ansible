@@ -5,6 +5,7 @@
   ansible.builtin.package:
     name:
       - nodejs
+      - gcc-c++
     state: present
 
 
@@ -15,6 +16,16 @@
   ansible.builtin.include_role:
     name: common ## role /folder file location 
     tasks_from: createuser ## file name
+
+- name: Download DocDB Pem File 
+  ansible.builtin.get_url:
+    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    dest: /home/roboshop/
+    mode: '0440'
+    owner: roboshop 
+    group: roboshop 
+
+  
 
 # module will be called from common role .as its a repetative task
 
