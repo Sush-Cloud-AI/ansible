@@ -73,7 +73,7 @@
 - name: Downloading and extracting {{COMPONENT}} schema
   ansible.builtin.include_role:
     name: common
-    tasks_from: download
+    tasks_from: github-dwld
 
 - name: Load schema
   community.mysql.mysql_db:
